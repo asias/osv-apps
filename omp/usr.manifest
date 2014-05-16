@@ -1,0 +1,2 @@
+/omp.so: ${MODULE_DIR}/omp.so
+/usr/lib/libgomp.so.1: /lib64/libgomp.so.1

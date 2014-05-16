@@ -1,0 +1,5 @@
+$ scripts/check-libcfunc-avail.sh release /lib64/libgomp.so.1
+pthread_attr_setaffinity_np not found
+__sched_cpucount not found
+pthread_setaffinity_np not found
+pthread_getaffinity_np not found

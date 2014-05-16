@@ -94,5 +94,9 @@
 "redis-memonly": {
     "type": "direct-dir",
     "path": "${OSV_BASE}/apps/redis-memonly/"
+},
+"omp": {
+    "type": "direct-dir",
+    "path": "${OSV_BASE}/apps/omp/"
 }
 }
