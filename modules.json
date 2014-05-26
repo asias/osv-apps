@@ -102,5 +102,9 @@
 "solr": {
     "type": "direct-dir",
     "path": "${OSV_BASE}/apps/solr/"
+},
+"jython": {
+    "type": "direct-dir",
+    "path": "${OSV_BASE}/apps/jython/"
 }
 }
