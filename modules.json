@@ -102,5 +102,13 @@
 "solr": {
     "type": "direct-dir",
     "path": "${OSV_BASE}/apps/solr/"
+},
+"solr-bench": {
+    "type": "direct-dir",
+    "path": "${OSV_BASE}/apps/solr-bench/"
+},
+"http-server": {
+    "type": "direct-dir",
+    "path": "${OSV_BASE}/apps/http-server/"
 }
 }

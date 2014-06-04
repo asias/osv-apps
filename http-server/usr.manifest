@@ -1,0 +1,2 @@
+/http-server.so: ${MODULE_DIR}/http-server.so
+/usr/lib/libevent-2.0.so.5: ${MODULE_DIR}/libevent-2.0.so.5
