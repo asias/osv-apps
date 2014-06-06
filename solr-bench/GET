@@ -26,14 +26,13 @@ ln -sf lucene.src trunk
 tar xf ../indices.tar.gz
 
 cd util
-
-#python src/python/setup.py
+python src/python/setup.py
 #python src/python/localrun.py -source wikimedium10k
-mkdir logs
+mkdir logs  >/dev/null 2>&1
 touch logs/mylog.txt
 cp tasks/wikimedium.1M.nostopwords.tasks my.tasks
-
 cd ..
+
 ROOTDIR=../ROOTFS/data/lucene
 cp -a indices $ROOTDIR
 cp -a util $ROOTDIR
