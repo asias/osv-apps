@@ -8,6 +8,8 @@ fi
 if [ ! -e ROOTFS ];then
 	mkdir -p ROOTFS/data/lucene
 	mkdir -p ROOTFS/data/lucene/trunk/lucene
+	mkdir -p ROOTFS/data/lucene/logs
+        touch  ROOTFS/data/lucene/logs/log.txt
 fi 
 
 cd upstream
@@ -37,5 +39,6 @@ ROOTDIR=../ROOTFS/data/lucene
 cp -a indices $ROOTDIR
 cp -a util $ROOTDIR
 cp -a trunk/lucene/build $ROOTDIR/trunk/lucene
+cp -a ../IntNRQ.tasks $ROOTDIR/util/my.tasks
 
 exit 0
