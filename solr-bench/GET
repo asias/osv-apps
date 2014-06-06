@@ -1,7 +1,42 @@
 #!/usr/bin/env bash
 
-if [ ! -e jython.jar ];then
-        wget get http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7-b2/jython-standalone-2.7-b2.jar -O jython.jar
+
+if [ ! -e upstream ];then
+	mkdir upstream
+fi 
+
+if [ ! -e ROOTFS ];then
+	mkdir -p ROOTFS/data/lucene
+	mkdir -p ROOTFS/data/lucene/trunk/lucene
+fi 
+
+cd upstream
+
+if [ ! -e lucene.src ];then
+       svn checkout https://svn.apache.org/repos/asf/lucene/dev/trunk lucene.src
 fi
+
+if [ ! -e util ];then
+	hg clone https://hg.codespot.com/a/apache-extras.org/luceneutil/ util 
+fi
+
+ln -sf lucene.src patch
+ln -sf lucene.src trunk
+
+tar xf ../indices.tar.gz
+
+cd util
+
+#python src/python/setup.py
+#python src/python/localrun.py -source wikimedium10k
+mkdir logs
+touch logs/mylog.txt
+cp tasks/wikimedium.1M.nostopwords.tasks my.tasks
+
+cd ..
+ROOTDIR=../ROOTFS/data/lucene
+cp -a indices $ROOTDIR
+cp -a util $ROOTDIR
+cp -a trunk/lucene/build $ROOTDIR/trunk/lucene
 
 exit 0
