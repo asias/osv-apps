@@ -20,6 +20,9 @@ fi
 
 if [ ! -e util ];then
 	hg clone https://hg.codespot.com/a/apache-extras.org/luceneutil/ util 
+	cd util
+	patch -p1 <  ../../compile-only.patch
+	cd ..
 fi
 
 if [ ! -e patch ]; then
@@ -36,7 +39,7 @@ cd util
 cp tasks/wikimedium.1M.nostopwords.tasks my.tasks
 cp tasks/wikimedium.1M.nostopwords.tasks .
 python src/python/setup.py
-python src/python/localrun.py -source wikimedium10k
+python src/python/localrun.py -source wikimedium10k -compile-only
 mkdir logs  >/dev/null 2>&1
 touch logs/mylog.txt
 cd ..
@@ -46,8 +49,10 @@ cp -a indices $ROOTDIR
 cp -a util $ROOTDIR
 cp -a trunk/lucene/build $ROOTDIR/trunk/lucene
 
-###
+# Task files
 cp -a ../IntNRQ.tasks $ROOTDIR/util/my.tasks
 cp -a ../IntNRQ.tasks ../upstream/util/my.tasks
+
+echo Setup Done
 
 exit 0

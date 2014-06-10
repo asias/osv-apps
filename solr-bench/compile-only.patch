@@ -1,0 +1,12 @@
+diff -r 32e18108c1cb src/python/searchBench.py
+--- a/src/python/searchBench.py	Tue Jun 10 13:47:30 2014 +0800
++++ b/src/python/searchBench.py	Tue Jun 10 17:57:26 2014 +0800
+@@ -44,6 +44,8 @@
+     print 'Compile:'
+     for c in competitors:
+       r.compile(c)
++    if '-compile-only' in sys.argv:
++      return
+   if not search:
+     search = '-search' in sys.argv
+ 
