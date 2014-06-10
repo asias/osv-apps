@@ -22,17 +22,23 @@ if [ ! -e util ];then
 	hg clone https://hg.codespot.com/a/apache-extras.org/luceneutil/ util 
 fi
 
-ln -sf lucene.src patch
-ln -sf lucene.src trunk
+if [ ! -e patch ]; then
+	ln -sf lucene.src patch
+fi
+
+if [ ! -e trunk ]; then
+	ln -sf lucene.src trunk
+fi
 
 tar xf ../indices.tar.gz
 
 cd util
+cp tasks/wikimedium.1M.nostopwords.tasks my.tasks
+cp tasks/wikimedium.1M.nostopwords.tasks .
 python src/python/setup.py
-#python src/python/localrun.py -source wikimedium10k
+python src/python/localrun.py -source wikimedium10k
 mkdir logs  >/dev/null 2>&1
 touch logs/mylog.txt
-cp tasks/wikimedium.1M.nostopwords.tasks my.tasks
 cd ..
 
 ROOTDIR=../ROOTFS/data/lucene
@@ -42,5 +48,6 @@ cp -a trunk/lucene/build $ROOTDIR/trunk/lucene
 
 ###
 cp -a ../IntNRQ.tasks $ROOTDIR/util/my.tasks
+cp -a ../IntNRQ.tasks ../upstream/util/my.tasks
 
 exit 0
