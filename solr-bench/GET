@@ -39,6 +39,8 @@ ROOTDIR=../ROOTFS/data/lucene
 cp -a indices $ROOTDIR
 cp -a util $ROOTDIR
 cp -a trunk/lucene/build $ROOTDIR/trunk/lucene
+
+###
 cp -a ../IntNRQ.tasks $ROOTDIR/util/my.tasks
 
 exit 0
