@@ -52,6 +52,7 @@ cp -a trunk/lucene/build $ROOTDIR/trunk/lucene
 # Task files
 cp -a ../IntNRQ.tasks $ROOTDIR/util/my.tasks
 cp -a ../IntNRQ.tasks ../upstream/util/my.tasks
+cp -a ../hello.so ../ROOTFS
 
 echo Setup Done
 
