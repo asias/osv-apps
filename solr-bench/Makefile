@@ -1,5 +1,6 @@
 .PHONY: module
-module: ./GET
+module:
+	./GET
 
 clean:
-	rm -rf ROOTFS *.jar
+	rm -rf ROOTFS
