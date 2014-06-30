@@ -49,9 +49,10 @@ cp -a util $ROOTDIR
 cp -a trunk/lucene/build $ROOTDIR/trunk/lucene
 
 # Task files
-cp -a ../IntNRQ.tasks $ROOTDIR/util/my.tasks
-cp -a ../IntNRQ.tasks ../upstream/util/my.tasks
-
+#cp -a ../IntNRQ.tasks $ROOTDIR/util/my.tasks
+#cp -a ../IntNRQ.tasks ../upstream/util/my.tasks
+cd ..
+cp host.sh ROOTFS/data/lucene
 echo Setup Done
 
 exit 0

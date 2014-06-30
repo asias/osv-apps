@@ -111,6 +111,10 @@
     "type": "direct-dir",
     "path": "${OSV_BASE}/apps/solr-bench/"
 },
+"specjbb": {
+    "type": "direct-dir",
+    "path": "${OSV_BASE}/apps/specjbb/"
+},
 "http-server": {
     "type": "direct-dir",
     "path": "${OSV_BASE}/apps/http-server/"
