@@ -7,9 +7,9 @@ dir=apache-tomcat-$VERSION
 archive=$dir.tar.gz
 
 if [ ! -e $archive ];then
-wget http://archive.apache.org/dist/tomcat/tomcat-${MAJOR}/v${VERSION}/bin/${archive}
+    wget http://archive.apache.org/dist/tomcat/tomcat-${MAJOR}/v${VERSION}/bin/${archive}
 fi
-tar zxvf $archive
+tar xvf $archive
 
 pushd $dir
 for p in $(find ../patches/perf/ -name '*.patch' | sort); do
@@ -19,7 +19,5 @@ done
 popd
 
 rm -rf ROOTFS
-mkdir ROOTFS
-mkdir -p ROOTFS/usr/tomcat
-mv $dir/* ROOTFS/usr/tomcat
-rm -rf $dir
+mkdir -p ROOTFS/usr
+mv $dir ROOTFS/usr/tomcat
