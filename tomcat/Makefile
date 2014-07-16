@@ -1,8 +1,6 @@
 .PHONY: module
-module: upstream
-
-upstream:
+module:
 	./GET
 
 clean:
-	rm -rf upstream ROOTFS *.pyc
+	rm -rf ROOTFS *.pyc *.tar.gz

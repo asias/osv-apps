@@ -6,21 +6,20 @@ VERSION=${MAJOR}.0.54
 dir=apache-tomcat-$VERSION
 archive=$dir.tar.gz
 
-mkdir -p upstream
-pushd upstream
+if [ ! -e $archive ];then
 wget http://archive.apache.org/dist/tomcat/tomcat-${MAJOR}/v${VERSION}/bin/${archive}
+fi
 tar zxvf $archive
 
 pushd $dir
-for p in $(find ../../patches/perf/ -name '*.patch' | sort); do
+for p in $(find ../patches/perf/ -name '*.patch' | sort); do
     echo "Applying $p"
     patch -p1 < $p
 done
 popd
 
-popd
-
-
+rm -rf ROOTFS
 mkdir ROOTFS
 mkdir -p ROOTFS/usr/tomcat
-mv upstream/$dir/* ROOTFS/usr/tomcat
+mv $dir/* ROOTFS/usr/tomcat
+rm -rf $dir
